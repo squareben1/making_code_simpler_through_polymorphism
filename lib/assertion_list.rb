@@ -7,13 +7,9 @@ class AssertionList
     @assertions << assertion
   end
 
-  def run_all_assertions
+  def assert
     @assertions.each do |assertion|
-      if assertion.is_a?(TruthyAssertion)
-        assertion.truthy
-      elsif assertion.is_a?(EqualAssertion)
-        assertion.equal
-      end
+      assertion.assert
     end
   end
 end

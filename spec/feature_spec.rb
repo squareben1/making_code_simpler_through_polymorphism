@@ -7,14 +7,14 @@ describe AssertionList do
     subject.add(TruthyAssertion.new(""))
     subject.add(EqualAssertion.new(1, 1))
 
-    expect { subject.run_all_assertions }
+    expect { subject.assert }
       .not_to raise_error
   end
 
   it "raises an error if one of the assertions doesn't pass" do
     subject.add(TruthyAssertion.new(false))
 
-    expect { subject.run_all_assertions }
+    expect { subject.assert }
       .to raise_error "false is not truthy"
   end
 end
