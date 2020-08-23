@@ -8,8 +8,6 @@ class AssertionList
   end
 
   def assert
-    @assertions.each do |assertion|
-      assertion.assert
-    end
+    @assertions.each(&:assert)
   end
 end
